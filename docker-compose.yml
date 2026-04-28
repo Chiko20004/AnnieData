@@ -228,3 +228,4 @@ volumes:
 networks:
   anidata-network:
     driver: bridge
+    name: anidata-network
