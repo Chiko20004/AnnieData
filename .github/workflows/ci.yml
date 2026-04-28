@@ -50,3 +50,16 @@ jobs:
       - name: Run scraper tests
         working-directory: anidata-scraper
         run: pytest --tb=short -v
+
+  trigger-dag:
+    name: Trigger Airflow DAG
+    runs-on: self-hosted
+    needs: [build, test-scraper]
+
+    steps:
+      - name: Trigger 02_scrape_mock_site
+        run: |
+          curl -X POST http://localhost:8080/api/v1/dags/02_scrape_mock_site/dagRuns \
+            -H "Content-Type: application/json" \
+            -u admin:admin \
+            -d '{"conf": {}}'
