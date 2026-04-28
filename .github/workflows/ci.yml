@@ -55,6 +55,7 @@ jobs:
     name: Trigger Airflow DAG
     runs-on: self-hosted
     needs: [build, test-scraper]
+    continue-on-error: true
 
     steps:
       - name: Trigger 02_scrape_mock_site

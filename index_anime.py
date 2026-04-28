@@ -23,4 +23,4 @@ def gen():
 
 helpers.bulk(es, gen())
 print('Done:', es.count(index='anime'))
-print('hello')
+print('edit')
