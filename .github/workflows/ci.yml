@@ -3,9 +3,7 @@ name: CI
 
 on:
   push:
-    branches: [main, dev, cherif, imen]
   pull_request:
-    branches: [main, dev]
 
 jobs:
   build:
